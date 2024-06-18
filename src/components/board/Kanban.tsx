@@ -5,13 +5,11 @@ import TaskCard from './TaskCard';
 import styled from 'styled-components';
 const Container = styled.div`
   background: #fff;
-  padding: 1rem;
+  padding-top: 1rem;
   display: flex;
   flex-direction: row;
   margin-top: 0.5rem;
   gap: 1rem;
-  width: 77vw;
-  height: 77vh;
   overflow-x: scroll;
 `;
 
