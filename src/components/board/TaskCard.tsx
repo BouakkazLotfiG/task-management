@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
 import Avatars from './Avatars';
+import { Badge } from '../ui/badge';
+import { formatDateTime } from '@/utils/formatDateTime';
 
 const Card = styled.div`
   border: 1px solid lightgrey;
@@ -42,12 +44,20 @@ const Description = styled.p`
   opacity: 50%;
 `;
 
+const DateText = styled.p`
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #868585;
+`;
+
 interface TaskCardProps {
   task: Task;
   index: number;
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ task, index }) => {
+  const { title, details, priority, createdAt } = task;
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided: any) => (
@@ -58,16 +68,20 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, index }) => {
         >
           <div className='flex flex-col'>
             <div className='flex justify-between items-start'>
-              <div>
-                <h3 className='font-medium text-sm mb-1'>Opportunity</h3>
-                <LeadText className='text-[13px] font-normal'>
+              <div className=' border-b-2 pb-4 mb-2'>
+                <Badge variant={priority} className='mb-2'>
+                  {priority.charAt(0).toUpperCase() + priority.slice(1)}
+                </Badge>
+                <h3 className='font-medium text-base mb-1'>{title}</h3>
+                {/* <LeadText className='text-[13px] font-normal'>
                   Lead:{' '}
                   <LeadName className='text-[#237CEA] text-[13px] font-medium'>
                     Ramzi Khokh
                   </LeadName>
-                </LeadText>
+                </LeadText> */}
 
-                <Description>descprion</Description>
+                <Description>{details}</Description>
+                <DateText>{formatDateTime(createdAt)}</DateText>
               </div>
               <ImageContainer className='bg-[#FAFAFA] shadow-sm   flex justify-center items-center '>
                 <img
@@ -80,20 +94,6 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, index }) => {
 
             <div className='flex w-full justify-between mt-2'>
               <Avatars />
-              <div className='flex items-center'>
-                <img
-                  className='w-[20px] h-[20px] mr-1'
-                  src='/assets/icons/money.svg'
-                  alt='money'
-                />
-                <LeadName
-                  size={14}
-                  className='text-[#237CEA] text-[13px] font-medium'
-                >
-                  {' '}
-                  : 6,543,000 DZD
-                </LeadName>
-              </div>
             </div>
           </div>
         </Card>
