@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
 import Avatars from './Avatars';
 import { Badge } from '../ui/badge';
-import { formatDateTime } from '@/utils/formatDateTime';
+import { formatDateStatus } from '@/utils/formatDateTime';
 
 const Card = styled.div`
   border: 1px solid lightgrey;
@@ -81,15 +81,15 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, index }) => {
                 </LeadText> */}
 
                 <Description>{details}</Description>
-                <DateText>{formatDateTime(createdAt)}</DateText>
+                <DateText>{formatDateStatus(createdAt)}</DateText>
               </div>
-              <ImageContainer className='bg-[#FAFAFA] shadow-sm   flex justify-center items-center '>
+              {/* <ImageContainer className='bg-[#FAFAFA] shadow-sm   flex justify-center items-center '>
                 <img
                   className='w-[4px] h-[16px]'
                   src='/assets/icons/menu.svg'
                   alt='menu'
                 />
-              </ImageContainer>
+              </ImageContainer> */}
             </div>
 
             <div className='flex w-full justify-between mt-2'>
