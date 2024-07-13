@@ -1,15 +1,12 @@
-export function formatDateTime(isoString: string): string {
-  const date = new Date(isoString);
+export function formatDateStatus(dateString: string): string {
+  const date = new Date(dateString);
 
-  // Options for formatting date and time
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+  const year = date.getUTCFullYear();
 
-    hour12: true,
-  };
+  const hours = String(date.getUTCHours()).padStart(2, '0');
+  const minutes = String(date.getUTCMinutes()).padStart(2, '0');
 
-  return date.toLocaleString(undefined, options);
+  return `${day}/${month}/${year} at ${hours}:${minutes}`;
 }
