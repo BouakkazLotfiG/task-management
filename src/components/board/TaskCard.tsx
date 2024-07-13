@@ -57,7 +57,7 @@ interface TaskCardProps {
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ task, index }) => {
-  const { title, details, priority, createdAt } = task;
+  const { title, details, priority, createdAt, assignedTo } = task;
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided: any) => (
@@ -93,7 +93,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, index }) => {
             </div>
 
             <div className='flex w-full justify-between mt-2'>
-              <Avatars />
+              <Avatars users={assignedTo} />
             </div>
           </div>
         </Card>
