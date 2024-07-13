@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { initialData } from './KanbanData';
+import { initialData } from '../../data';
 import TaskCard from './TaskCard';
 import styled from 'styled-components';
 const Container = styled.div`
