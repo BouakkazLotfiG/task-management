@@ -9,7 +9,7 @@ import { formatDateStatus } from '@/utils/formatDateTime';
 export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: 'title',
-    header: ({ column }) => (
+    header: ({ column }: any) => (
       <Button
         className='font-[800] text-sm'
         variant='ghost'
@@ -36,7 +36,7 @@ export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: 'assignedTo',
     header: 'assigned to',
-    cell: ({ row }) => (
+    cell: ({ row }: any) => (
       <div className='flex w-full justify-between mt-2'>
         <Avatars users={row.original.assignedTo} />
       </div>

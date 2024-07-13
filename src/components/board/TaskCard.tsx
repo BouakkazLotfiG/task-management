@@ -16,26 +16,6 @@ const Card = styled.div`
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.02);
 `;
 
-const ImageContainer = styled.div`
-  cursor: pointer;
-  width: 26px;
-  height: 26px;
-  background: #fafafa;
-  border-radius: 8px;
-`;
-
-const LeadText = styled.p`
-  font-size: 13px;
-  font-weight: 400;
-  color: #000;
-`;
-
-const LeadName = styled.span`
-  font-size: ${(props: any) => (props.size ? `${props.size}px` : '13px')};
-  font-weight: 500;
-  color: #237cea;
-`;
-
 const Description = styled.p`
   margin-top: 4px;
   font-size: 13px;

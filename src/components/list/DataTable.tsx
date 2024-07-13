@@ -56,9 +56,9 @@ export function DataTable<TValue>({ columns, data }: DataTableProps<TValue>) {
       </div>
       <Table className=' rounded-t-3xl  bg-white border-[#D5D5D5]/50 '>
         <TableHeader className='rounded-t-3xl px-4 '>
-          {table.getHeaderGroups().map((headerGroup) => (
+          {table.getHeaderGroups().map((headerGroup: any) => (
             <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
+              {headerGroup.headers.map((header: any) => (
                 <TableHead
                   className='text-foreground px-4 py-2 font-[800] text-sm'
                   key={header.id}
@@ -79,13 +79,13 @@ export function DataTable<TValue>({ columns, data }: DataTableProps<TValue>) {
           <>
             {table.getRowModel().rows.length != 0 ? (
               <>
-                {table.getRowModel().rows.map((row) => (
+                {table.getRowModel().rows.map((row: any) => (
                   <TableRow
                     className=''
                     key={row.id}
                     data-state={row.getIsSelected() && 'selected'}
                   >
-                    {row.getVisibleCells().map((cell) => (
+                    {row.getVisibleCells().map((cell: any) => (
                       <TableCell
                         className='w-1/5 px-4 py-5 text-foreground  cursor-pointer font-[400] text-sm'
                         key={cell.id}

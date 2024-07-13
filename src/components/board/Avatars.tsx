@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 interface TaskCardProps {
-  users: User[];
+  users: User[] | null;
 }
 
 const Avatars: React.FC<TaskCardProps> = ({ users }) => {
